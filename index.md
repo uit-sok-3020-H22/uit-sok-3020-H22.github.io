@@ -41,3 +41,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
 ## Equations
 $x\cdot (1+\frac{r}{n})^{T\cdot n}$
+
+|Header 1 | Header 2|
+|.........|.........|
+|Rad 1    |Rad 1    |
+|Rad 2    |Rad 2    |

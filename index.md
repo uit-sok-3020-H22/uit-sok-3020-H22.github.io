@@ -2,7 +2,7 @@
 {% include navbar.html %} <!-- Kode for navigasjonsmeny. Se navbar.html for å gjøre endringer. -->
 <!-- Gjør endringer under her -->
 
-important.md
+
 
 
 
@@ -15,6 +15,9 @@ important.md
 |7        |22/09    | AiDS Model Properties, derivation, elasticity formulas, restrictions (homogeneity, symmetry, and adding-up).Empirical specification, estimation.|
 |8        |23/09  | |
 
+
+
+important.md
 
 ## Kursbeskrivelse 
 The course generally teaches about the.dddd....

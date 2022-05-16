@@ -2,6 +2,8 @@
 {% include navbar.html %} <!-- Kode for navigasjonsmeny. Se navbar.html for å gjøre endringer. -->
 <!-- Gjør endringer under her -->
 
+important.md
+
 ## Kursbeskrivelse 
 The course generally teaches about the.dddd....
 
@@ -41,7 +43,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 ## Equations
 $x\cdot (1+\frac{r}{n})^{T\cdot n}$
 
-|Header 1 | Header 2|
-|.........|.........|
-|Rad 1    |Rad 1    |
-|Rad 2    |Rad 2    |
+|Session  | Date    |To do/done before/after class...|
+|.........|.........|................................|
+|1        |19/08    | Consumer Theory, Market demand, Utility tree, General market theory restrictions, Hicksian versus Marshallian demands|
+|2        |20/08    |.....|
+|3        | 24/08   |....|
+|4        |31/08    |....|
+|5        |02/09    |Rotterdam Model Properties, derivation, elasticity formulas, restrictions (homogeneity, symmetry, and adding-up).|

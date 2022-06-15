@@ -10,7 +10,7 @@ Kursplanen inneholder en kronologisk oversikt over de temaer som vi gjennomgår.
 
 Opptak av forelesningene vil bli lagt ut i Canvas via [Panopto Video](https://uit.instructure.com/courses/25562/external_tools/1032){:target="blank"}   
 
-[Timeplan](https://timeplan.uit.no/emne_timeplan.php?sem=22v&module[]=SOK-1005-1#week-1){:target="blank"} på timeplan.uit.no
+[Timeplan](https://timeplan.uit.no/emne_timeplan.php?sem=22h&module=SOK-3008-1#week=33-52 ){:target="blank"} på timeplan.uit.no
 
 ## Kursbeskrivelse 
 

@@ -6,7 +6,7 @@
 
 Kursplanen inneholder en kronologisk oversikt over de temaer som vi gjennomgår. Timeplanen viser tidspunkt og sted dersom det er mulig med "fysisk" oppmøte. Alt materiale vil være tilgjengelig digitalt via Canvas.
 
-- [Kursplan](kursplan.md){:target="blank"}
+- [Kursplan](courseplan.md){:target="blank"}
 
 Opptak av forelesningene vil bli lagt ut i Canvas via [Panopto Video](https://uit.instructure.com/courses/25562/external_tools/1032){:target="blank"}   
 

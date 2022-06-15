@@ -2,48 +2,48 @@
 {% include navbar.html %} <!-- Kode for navigasjonsmeny. Se navbar.html for å gjøre endringer. -->
 <!-- Gjør endringer under her -->
 
+## Kursplan  
 
+Kursplanen inneholder en kronologisk oversikt over de temaer som vi gjennomgår. Timeplanen viser tidspunkt og sted dersom det er mulig med "fysisk" oppmøte. Alt materiale vil være tilgjengelig digitalt via Canvas.
 
+- [Kursplan](kursplan.md){:target="blank"}
 
-## courseplan 
-- [courseplan](https://github.com/uit-sok-3008-H22/uit-sok-3008-H22.github.io/blob/main/courseplan.md)
--
-Timeplan{:target="blank"} på timeplan.uit.no 
-Kursbeskrivelse 
-The course generally teaches about the.dddd....
+Opptak av forelesningene vil bli lagt ut i Canvas via [Panopto Video](https://uit.instructure.com/courses/25562/external_tools/1032){:target="blank"}   
 
+[Timeplan](https://timeplan.uit.no/emne_timeplan.php?sem=22v&module[]=SOK-1005-1#week-1){:target="blank"} på timeplan.uit.no
 
-## Faglærerinfo
-Dejene will be the main instructor for this course in this semister and ... .....Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+## Kursbeskrivelse 
 
-## Pensum
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.0000
+Kurset tas normalt i andre vårsemester, og teller 10 studiepoeng.  
+[Læringsutbyttebeskrivelse](https://uit.no/utdanning/emner/emne/744168/sok-1005){:target="blank"}
 
-## Forelesningsplan
-- [Timeplan](https://timeplan.uit.no/emne_timeplan.php?sem=22h&module=SOK-3008-1#week=33-52)
-- Innhold
-- Ressurser
-  - Pensum
-  - Notater
-  - Video
-  - Øvinger
-  - Kode
-  - Lenke til Jupyter
-  - FAQ
+Til hver sesjon vil det være et tema. I kursplan er pensum angitt på datacamp og fra online-boka. Du er selv ansvarlig for å holde deg oppdatert med pensum i henhold til kursplan. Etterhvert vil også være medfølgende kodingsoppgaver. Disse gis bestått/ikke bestått, og alle arbeidskrav må være bestått for at kurset skal være bestått.
 
-## Innlevering
-- [Lorem ipsum](timeplan.md)
-- [Lorem ipsum](timeplan.md)
-- [Lorem ipsum](timeplan.md)
-- [Lorem ipsum](timeplan.md)
-- [Lorem ipsum](timeplan.md)
-- [Lorem ipsum](timeplan.md)
+## Faglærerinfo  
 
-## FAQ
+- [Øystein Myrland](https://uit.no/ansatte/person?p_document_id=41412){:target="blank"} (fagansvarlig)
+- [Espen Sirnes](https://uit.no/ansatte/person?p_document_id=41418){:target="blank"}
+- Sondre Elvebakken Løvås <slo079@post.uit.no> er studentassistent
 
-## Kursevaluering
-- [Lorem ipsum](timeplan.md)
-- [Lorem ipsum](timeplan.md)
+## Administrative spørsmål
 
-## Equations
-$x\cdot (1+\frac{r}{n})^{T\cdot n}$
+For henvendelser av administrativ art send e-post til: <hhcampus@hjelp.uit.no>. Der får du hjelp av Handelshøgskolens administrasjon.
+
+## Pensum  
+
+[Leganto](https://bibsys-c.alma.exlibrisgroup.com/leganto/readinglist/lists/8897939560002205){:target="blank"}
+
+- [R for Data Science - online versjon av boka](https://r4ds.had.co.nz/){:target="blank"}
+
+- Moduler i [datacamp](https://app.datacamp.com/){:target="blank"}. Du finner oversikt i [kursplanen](kursplan.md){:target="blank"}. Innleveringsfristene er registrert i gruppen vår i datacamp. Når en frist går ut forsvinner kurset fra gruppen. Du må da gå inn i kurset direkte fra datacamp for å fullføre.
+
+## Kunngjøringer  
+
+Kunngjøringer og beskjeder legges ut i [Canvas](https://uit.instructure.com/courses/25562/announcements){:target="blank"}.
+
+## Innlevering og eksamen  
+
+Kurset har mappeevaluering. Alle oppgaver er obligatorisk; noen er _arbeidskrav_ (uten karakter, skal kun godkjennes), mens andre er karaktergivende.
+Til hver oppgave vil det bli spesifisert hvilken kategori den tilhører.
+
+- Data Science prosjekt. Du skal gjennomføre et prosjekt, enten alene eller inntil 3 i en gruppe, som vil utgjøre mesteparten av din mappe. Nærmere info vil komme.

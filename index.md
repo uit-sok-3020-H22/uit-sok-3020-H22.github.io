@@ -2,11 +2,11 @@
 {% include navbar.html %} <!-- Kode for navigasjonsmeny. Se navbar.html for å gjøre endringer. -->
 <!-- Gjør endringer under her -->
 
-## Kursplan  
+## courseplan  
 
 Kursplanen inneholder en kronologisk oversikt over de temaer som vi gjennomgår. Timeplanen viser tidspunkt og sted dersom det er mulig med "fysisk" oppmøte. Alt materiale vil være tilgjengelig digitalt via Canvas.
 
-- [Kursplan](courseplan.md){:target="blank"}
+- [courseplan](courseplan.md){:target="blank"}
 
 Opptak av forelesningene vil bli lagt ut i Canvas via [Panopto Video](https://uit.instructure.com/courses/25562/external_tools/1032){:target="blank"}   
 
@@ -15,15 +15,14 @@ Opptak av forelesningene vil bli lagt ut i Canvas via [Panopto Video](https://ui
 ## Kursbeskrivelse 
 
 Kurset tas normalt i andre vårsemester, og teller 10 studiepoeng.  
-[Læringsutbyttebeskrivelse](https://uit.no/utdanning/emner/emne/744168/sok-1005){:target="blank"}
+[Læringsutbyttebeskrivelse](https://uit.no/utdanning/emner/emne/765596/sok-3008){:target="blank"}
 
 Til hver sesjon vil det være et tema. I kursplan er pensum angitt på datacamp og fra online-boka. Du er selv ansvarlig for å holde deg oppdatert med pensum i henhold til kursplan. Etterhvert vil også være medfølgende kodingsoppgaver. Disse gis bestått/ikke bestått, og alle arbeidskrav må være bestått for at kurset skal være bestått.
 
 ## Faglærerinfo  
 
-- [Øystein Myrland](https://uit.no/ansatte/person?p_document_id=41412){:target="blank"} (fagansvarlig)
-- [Espen Sirnes](https://uit.no/ansatte/person?p_document_id=41418){:target="blank"}
-- Sondre Elvebakken Løvås <slo079@post.uit.no> er studentassistent
+- [Dejene, G.K.](https://uit.no/ansatte/person?p_document_id=559969){:target="blank"} (fagansvarlig)
+
 
 ## Administrative spørsmål
 

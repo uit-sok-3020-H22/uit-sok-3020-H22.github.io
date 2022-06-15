@@ -8,6 +8,7 @@
 ## courseplan 
 - [courseplan](https://github.com/uit-sok-3008-H22/uit-sok-3008-H22.github.io/blob/main/courseplan.md)
 -
+Timeplan{:target="blank"} på timeplan.uit.no 
 Kursbeskrivelse 
 The course generally teaches about the.dddd....
 

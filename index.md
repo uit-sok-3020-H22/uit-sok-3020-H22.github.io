@@ -18,7 +18,7 @@ Recordings of the lectures will be posted in Canvas via [Panopto Video](https://
 
 ## Subject teacher   
 
-- [Dejene, G.K.](https://uit.no/ansatte/person?p_document_id=559969){:target="blank"} (fagansvarlig)
+- [Dejene, G.K.](https://uit.no/ansatte/person?p_document_id=559969){:target="blank"} (subject manager)
 
 
 ## Administrative issues

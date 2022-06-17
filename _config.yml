@@ -1,9 +1,9 @@
 
 #----------Instillinger: Boks på toppen av side----------------------------------------------------------------------
-bilde: https://github.com/uit-econ/hovedside/blob/main/assets/img/Sok-3008.jpg?raw=true #Emnebilde
-name: Sok-3008 Models for Market Analysis
+bilde: https://github.com/uit-econ/hovedside/blob/main/assets/img/Sok-3020.jpg?raw=true #Emnebilde
+name: Sok-3020 Econometrics
 semester: Høst 2022
-webadresse: https://uit-sok-3008-h22.github.io/
+webadresse: https://uit-sok-3020-h22.github.io/
 
 
 #--------------Avanserte instillinger---------------------------------------------------------------------
@@ -20,7 +20,7 @@ primaerfarge: 007396 #Farge overskrifter
 sekundaerfarge: #Farge generell tekst
 linkfarge: f2a900 #Farge linker
 
-uitlogo: https://raw.githubusercontent.com/uit-sok-3008-v22/uit-sok-3008-v22.github.io/main/assets/img/UiT_Logo_Bok_Hvit.png
+uitlogo: https://raw.githubusercontent.com/uit-sok-3020-v22/uit-sok-3020-v22.github.io/main/assets/img/UiT_Logo_Bok_Hvit.png
 
 ##https://raw.githubusercontent.com/uit-econ/emneside-template/aa784f1f42f68be33636891254d5e6b9a1d3b6ce/assets/img/bokmal_main.svg
 title: null #Skal stå tom

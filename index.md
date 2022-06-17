@@ -13,7 +13,7 @@ Recordings of the lectures will be posted in Canvas via [Panopto Video](https://
 
 ## Course description
  
-- [course content and objectives](https://uit.no/utdanning/emner/emne/765596/sok-3020){:target="blank"}
+- [course content and objectives](https://uit.no/utdanning/emner/emne/765595/sok-3020){:target="blank"}
 
 
 ## Subject teacher   

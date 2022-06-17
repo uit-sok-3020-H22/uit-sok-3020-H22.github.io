@@ -18,3 +18,4 @@
 | 10|10/09| Her finner du en liten digital bok om Tidyverse, [The Tidyverse Cookbook](https://rstudio-education.github.io/tidyverse-cookbook/){:target='_blank_'} |
 | 11|11/09 | Les disse to artiklene fra The Economist; [artikkel 1](https://uit.instructure.com/files/1703066/download?download_frd=1){:target='_blank_'}<br />[artikkel 2](https://uit.instructure.com/files/1703065/download?download_frd=1){:target='_blank_'}   |
 | | | Panel model [video](https://mediasite.uit.no/Mediasite/Play/605c35d2405d4b2f88b95c0cce60c6b11d){:target='_blank_'}|
+| | |The end | 

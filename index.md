@@ -20,6 +20,8 @@ Recordings of the lectures will be posted in Canvas via [Panopto Video](https://
 
 - [Dejene, G.K.](https://uit.no/ansatte/person?p_document_id=559969){:target="blank"} (subject manager)
 
+## Text book 
+-[Buy the textbook: Principles of Econometrics, 5th Edition (POE5), Wiley - 2018. Available at the campus bookstore Akademika][http://principlesofeconometrics.com/poe5/poe5.html]{:target="blank"}
 
 ## Administrative issues
 

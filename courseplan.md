@@ -8,6 +8,7 @@
 | 1|13/08 | Chapter-1. An introduction to economics <br/> [video](https://mediasite.uit.no/Mediasite/Play/9cee358de25d442ab518736322b7b0841d){:target='_blank_'} |
 | 10|10/09| A short introduction to R, [The Tidyverse Cookbook](https://rstudio-education.github.io/tidyverse-cookbook/){:target='_blank_'} |
 | 11|11/09 |[Appendex A](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/R/Appendex_A.R){:target='_blank_'}   |
+| | | [Appendix C](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/R/Appendix%20C.R){:target='_blank_'}|
 | | | [Assignment One](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/Assignment/Assignment%20one.md){:target='_blank_'}| 
 | | | Panel model [video](https://mediasite.uit.no/Mediasite/Play/605c35d2405d4b2f88b95c0cce60c6b11d){:target='_blank_'}|
 | | |That is good | 

@@ -1,7 +1,7 @@
 
 {% include top-box.html %} {% include navbar.html %}
 
-# Excercise 
+# Questions 
 
 Do the fllowing exercises from the text book
 

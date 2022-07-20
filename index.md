@@ -34,4 +34,4 @@ Announcements and messages are posted in [Canvas](https://uit.instructure.com/co
 
 ## Submission and exam 
 
- In this course, you will be given a set of exercise to work on....
+ In this course, you will be given a set of exercise to work on. Some of these exercises are mandatory, while others are not 

@@ -27,10 +27,6 @@ you donot have to do all assignments. If you skip one, new chances will come.
 ## Text book 
 - [Buy the textbook: Principles of Econometrics, 5th Edition (POE5), Wiley - 2018. Available at the campus bookstore Akademika](https://principlesofeconometrics.com/poe5/poe5.html){:target="blank"}
 
-## Administrative issues
-
-For inquiries of an administrative nature, send an e-mail to: <hhcampus@hjelp.uit.no>. There you get help from the Business School's administration.
-
 ## Announcements
 
 Announcements and messages are posted in [Canvas](https://uit.instructure.com/courses/26963/announcements){:target="blank"}.

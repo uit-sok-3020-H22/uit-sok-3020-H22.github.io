@@ -4,7 +4,7 @@
 
 ## course Flow   
 
-- [Where are we(progress),and what to do next!](courseplan.md){:target="blank"}
+- <u>[Where are we(progress),and what to do next!](courseplan.md){:target="blank"}</u>
 
 
 A link to [Timeplan](https://timeplan.uit.no/emne_timeplan.php?sem=22h&module=SOK-3020-1#week=33-52 ){:target="blank"} at timeplan.uit.no

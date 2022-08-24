@@ -294,3 +294,81 @@ cor(andy$sales,andy$price)
 
 cor.test(andy$sales,andy$price)
 
+
+#########################################################
+
+
+#' R ships with some basic functions called base R.
+#' However,it extended by packages(read functions) written by collaborators
+#' all over the world. Packages adds new functionality to R, and you have 
+#' to load them ("start them") each time you need them. 
+
+#' install.packages("mosaic") #'Note the use of: " " around the package name
+
+#' or  you can also use the "Package toolbar"
+
+library(mosaic) #'Note that the " " are gone
+
+#' Make a scatter plot of price on the x axis and sales on the y axis!
+#' using the function ggplot from the mosaic package 
+
+
+andy %>% ggplot(aes(x=sales,y=price)) + geom_point()
+
+# Histogram 
+
+# using the base R histogram 
+histogram(~sales,data = andy)
+
+# from the mosaic package 
+gf_histogram(~sales, data = andy) 
+
+andy %>% ggplot(aes(sales)) +geom_histogram(bins =15, alpha= 0.7)
+
+
+#' creating a new var. "quantity"
+
+#'sales = price x quantity
+
+#'how to find quantity?
+#'quantity = sales / price
+
+#' Here we use the "base R" function
+head(andy)
+
+andy$quantity <- andy$sales/andy$price  
+head(andy)
+
+#' create a new variable with mutate and pipes  
+
+andy$quantity <- NULL  #drop the variable quantity from the data frame
+head(andy)
+
+
+andy %>% mutate(quantity=sales/price)
+
+#save the data frame as andy 
+andy <- andy %>% mutate(quantity=sales/price)
+
+head(andy)
+
+
+#' Make a scatter plot of quantity on the x axis and price on the y axis! 
+
+andy %>% ggplot(aes(x=quantity,y=price)) + geom_point()
+
+#' Add a smoother to our data 
+andy %>% ggplot(aes(x=quantity, y=price)) + geom_point()+geom_smooth(method = lm, se = FALSE)
+
+
+#--------------------------------------------------------------------------
+
+
+#' Reading in data from a comma-delimited file
+
+read.csv("http://www.principlesofeconometrics.com/poe5/data/csv/andy.csv")
+
+#' assign a name to the data that you read in using the assignment operator 
+andy <- read.csv("http://www.principlesofeconometrics.com/poe5/data/csv/andy.csv")
+head(andy)
+

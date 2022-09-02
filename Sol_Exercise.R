@@ -107,14 +107,7 @@ head(star5_small)
 
 # a)
 
-
-#filter(star5_small, regular==1)
-
-#gf_histogram(~mathscore, data = filter(star5_small, regular==1), title="Mathscore for regular=1")
-
-#?gf_histogram
-
-# or, using ggplot 
+#  histogram using ggplot
 star5_small %>% filter(regular==1) %>% select(mathscore)
 
 df <- star5_small %>% filter(regular ==1) %>% select(mathscore) 

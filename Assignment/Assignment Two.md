@@ -1,3 +1,5 @@
+{% include top-box.html %} {% include navbar.html %}
+
 Do exercises:
 
 From Chapter 2:  2.16,  2.27, 2.28

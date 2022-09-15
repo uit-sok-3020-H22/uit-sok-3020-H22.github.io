@@ -105,7 +105,12 @@ p_load(TeachingDemos)
 set.seed(219)
 ci.examp(mean.sim=10.21, sd=2.09, n=38, reps=100, conf.level = 0.95, method = "t")
 
-p_load(car, multcomp, FSA)
+p_load(car, multcomp)  # intsall car and multcomp packages 
+
+install.packages("FSA") 
+# may be not installing (?).
+# install the package "FSAmisc" instead
+#(To download "FSAmisc" see the link:  https://rdrr.io/github/droglenc/FSAmisc/ )
 
 # Example 3.2, p.123, here we specify a one-tail right-test, H0: b2=0, H1: b2>0
 # t-critical (tc) alpha=0.05 
@@ -126,8 +131,8 @@ summary(glht(fit, linfct = c("income <= 5.5")))$test$tstat > qt(0.99, 38)
 # Example 3.4, p.125, here we specify a one-tail test, H0: b2>=15, H1: b2<15
 # t-critical (tc) alpha=0.05 
 qt(0.05, 38) # note that since this is a left tail test, how we change the quantile to the left of the distribution
-hoCoef(fit, term = 2, bo = 15, alt = c("less")) # FSA::hoCoef, one sided test
-summary(glht(fit, linfct = c("income >= 15"))) # multcomp::glht, one sided test, H0
+hoCoef(fit, term = 2, bo = 15, alt = c("less")) 
+summary(glht(fit, linfct = c("income >= 15"))) 
 # we reject H0
 summary(glht(fit, linfct = c("income >= 15")))$test$tstat < qt(0.05, 38)
 

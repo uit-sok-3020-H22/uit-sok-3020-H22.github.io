@@ -5,10 +5,6 @@
 #' Data definition file: <http://www.principlesofeconometrics.com/poe5/data/def/food.def>
 rm(list=ls())
 
-getwd()
-setwd("~/poe5/h2020")
-dir()
-
 library(mosaic)
 library(rockchalk) 
 library(stargazer)

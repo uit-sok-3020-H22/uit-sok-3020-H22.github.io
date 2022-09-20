@@ -44,7 +44,7 @@ m5
 #' Exxon-Mobil monthly rate of return:
 m6 <- lm(xom-riskfree~I(mkt-riskfree), data=capm5)
 m6
-
+#' Just put all the betas in a vector form to make a comparison easy  
 betas=c(coef(m1)[2],coef(m2)[2],coef(m3)[2],coef(m4)[2],coef(m5)[2],coef(m6)[2])
 names(betas) = c("Disney","General Electric","Ford","IBM","Microsoft","Exxon-Mobil")
 betas
@@ -168,19 +168,20 @@ motel <- motel %>% mutate(relprice=100*relprice)
 
 #' motel_pct: percentage motel occupancy
 #' relprice: relative price = motel_rate/comp_rate
+# ggplot 
+motel %>% ggplot(aes(x=relprice, y=motel_pct)) + geom_point()
+# alternatively 
 gf_point(motel_pct ~ relprice, data = motel) %>%
-  gf_lm() %>% 
-  gf_labs(title = "", caption = "")
+  gf_lm() %>% gf_labs(title = "", caption = "")
 
 #' b.
 fit <- lm(motel_pct ~ relprice, data = motel)
 summary(fit)
 
-#' The estimated coefficient on the slope is negative, `r round(coef(fit)[2],2)` as anticipated.
-#' The estimated regression is: $\widehat{motel_{-}pct}=$ `r round(coef(fit)[1],2)` `r round(coef(fit)[2],2)` $\times relprice$.
-
+#' The estimated coefficient on the slope is negative as anticipated.
 
 residuals(fit)
+# some new code here, declar the residuals as time series data using the t() function 
 ts.residuals = ts(residuals(fit), start=c(2003,3), frequency = 12)
 plot(ts.residuals)
 
@@ -198,11 +199,7 @@ ggplot(data = motel, aes(x = date, y = residuals))+
   annotate("text", x = as.Date("2004/10/1"), y = 10, label = "Repair period", size=5)
 
 #' d.
-#' The linear regression model with an indicator variable is:
-#' $$ motel_{-}pct=\beta _{1}+\beta _{2} \times repair + e $$
-#' Given: $E(motel_{-}pct|repair=0)=\beta _{1}+\beta _{2} \times 0 =\beta _{1}$  
-#' and $E(motel_{-}pct|repair=1)=\beta _{1}+\beta _{2} \times 1 =\beta _{1} + \beta _{2}$.
-
+#' The linear regression model with an indicator variable repair 
 fit2 <- lm(motel_pct ~ repair, data = motel)
 summary(fit2)
 
@@ -214,11 +211,11 @@ coef(fit2)[1]+coef(fit2)[2]
 mean(~motel_pct|repair, data=motel)
 diffmean(motel_pct~repair, data=motel)
 
-#' During the non-repair period, the average occupancy rate was `r coef(fit2)[1]`%. During the repair period,
-#' the estimated occupancy rate was `r coef(fit2)[1]` `r round(coef(fit2)[2],2)`=`r round(coef(fit2)[1]+coef(fit2)[2],2)`% on average.
-#' The $\beta _{2}$ coefficient measures the difference in average occupancy levels between these two periods.
+#'Interprate the results by your self: 
+#'During the non-repair period, the average occupancy rate was..... During the repair period,
+#' the estimated occupancy rate was...... on average.
+#' The beta_2 coefficient measures the difference in average occupancy levels between these two periods.
 #' 
-
 
 
 ###########################################################################################

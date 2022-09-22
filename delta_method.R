@@ -86,8 +86,8 @@ deltaMethod(m1,
 # Test the null hypothesis that the elasticity, evaluated
 # at the sample mean of income and food_exp is one against the alt. that the 
 # elast is not one.
-#  H0:mx/my=1 vs H1:mx/my=1
-# Rewrite: H0:mx/my-1 vs H1:mx/my-1
+#  H0:b2*mx/my=1 vs H1:b2*mx/my=1
+# Rewrite: H0:b2*mx/my-1 vs H1:b2*mx/my-1
 
 deltaMethod(m1, 
             "b2*mx/my-1", 

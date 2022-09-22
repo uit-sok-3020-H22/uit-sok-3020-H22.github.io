@@ -70,7 +70,7 @@ dmt$Estimate/dmt$SE > qt(0.95, 38)
 #  Estimate the elasticity of expected food exp.
 els <- function(x,y){coef(m1)[2]*x/y}
 
-# The se of an eleasticty
+# The sample mean of income and food_exp
 mx <- mean(food$income)
 my <- mean(food$food_exp)
 

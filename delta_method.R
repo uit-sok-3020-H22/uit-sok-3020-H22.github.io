@@ -102,12 +102,20 @@ dm_t <- deltaMethod(m1,
 # t-value
 dm_t$Estimate/dm_t$SE
 
+#Two tail test 
 # critical t, alphe=0.05
-qt(0.95, 38)  #df = N-2 degree of freedom 
 
-# compare 
-dm_t$Estimate/dm_t$SE > qt(0.95, 38)
-#conclusion: Fail to reject H0
+# 2.5% critical value 
+qt(0.025, 38)   #df = N-2 degree of freedom 
+
+#97.5% crtitical value 
+qt(0.975, 38)  
+
+# compare the t-calculated with the critical values 
+dm_t$Estimate/dm_t$SE < qt(0.025, 38) # Hence reject Ho
+dm_t$Estimate/dm_t$SE > qt(0.975, 38)
+
+#conclusion: reject H0
 
 
 

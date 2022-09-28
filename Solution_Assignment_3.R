@@ -44,7 +44,8 @@ deltaMethod(fit, "b2*msqft/mprice-1", parameterNames= paste("b", 1:2, sep=""))
 #' and accept the alternative that it is not.
 
 #' c) H0: Marginal effect of 100 sqft <= 13 (13*1000=13000)
-summary(multcomp::glht(fit, linfct = c("sqft <= 13"))) 
+library(multcom)
+summary(glht(fit, linfct = c("sqft <= 13"))) 
 
 #Keep H0, we are unable to conclude that a 100 square foot increase (=1 sqft) in living area will increase price
 #by more than $13000 (=13 price).

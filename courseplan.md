@@ -25,5 +25,5 @@
 |14|30/09| We will continue working on **Chapter 05** <br /> <br />  [R code chap-05](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/Chap_5_Summary_Exercise.R){:target='_blank_'} <br /> [Solutions:5.18,5.22](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/Exercise_5.18_5.22.R){:target='_blank_'} <br /> <br /> |
 |15|04/10|Read/watch video/run code:<br /> <br />**`Chapter 06`**:Further Inference in the Multiple Regression Model <br />  [Video](https://mediasite.uit.no/Mediasite/Play/91908c8cfbc340248353d59c9d2aa0401d){:target='_blank_'} <br />[R code for Chapter 06](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/R%20code%20for%20Chapter%206.R){:target='_blank_'} <br /> <br />|
 |16|05/10||
-||**`Deadline: 11/10`**|**Do exercises**:<br /> **`From Chapter 4:  4.17, 4.28 (a, b, c)`**  <br /> **`From chapter 05: 5.23, 5.27`**  <br /> **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio`** <br />  <br />|
+||**`Deadline: 11/10`**|**Do exercises**:<br /> **`From Chapter 4:  4.17, 4.28 (a, b, d)`**  <br /> **`From chapter 05: 5.23, 5.27`**  <br /> **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio`** <br />  <br />|
 |17|14/10||

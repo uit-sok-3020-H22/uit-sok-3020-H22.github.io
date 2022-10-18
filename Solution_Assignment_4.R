@@ -243,3 +243,173 @@ f(48, interval="prediction")
 dframe[48,]
 
 
+#' 5.23
+
+rm(list=ls())
+
+browseURL("http://www.principlesofeconometrics.com/poe5/data/def/cocaine.def")
+
+# cocaine.def
+# 
+# price quant qual trend
+# 
+# Obs: 56 sales of cocaine 
+# 
+# price = price per gram in dollars for a cocaine sale,
+# quant = number of grams of cocaine in a given sale,
+# qual = quality of the cocaine expressed as percentage purity,
+# trend = a time variable with 1984 = 1 up to 1991 = 8.
+
+load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/cocaine.rdata"))
+
+# a.
+
+#' The expected sign for b2 is negative because, as the number of grams 
+#' in a given sale increases,
+#' the price per gram should decrease, implying a discount for larger sales.
+#' We expect b3 to be positive; the purer the cocaine, the higher the price.
+#' The sign for b4 will depend on how demand and supply are changing over time.
+#' For example, a fixed demand and an increasing supply will lead to a fall in price.
+#' A fixed supply and increased demand would lead to a rise in price.
+
+#' b.
+
+fit <- lm(price ~ quant + qual + trend, data = cocaine)
+summary(fit)
+
+#' The estimates imply that as quantity (number of grams in one sale) 
+#' increases by 1 unit,the mean price will go down by -0.05997.
+#' Also, as the quality increases by 1 unit the mean price goes
+#'  up by 0.11621.
+#' As time increases by 1 year, the mean price decreases by 2.35458.
+#' This indicates that supply has been increasing faster than demand,
+#'  pressing price downwards.
+
+#' c.
+
+#' The proportion of variation in cocaine price explained by the 
+#' variation in quantity, quality and time is 0.5097,
+#' the Multiple R-squared value. 
+
+#' d.
+
+#' This implies a H0: b2 >= 0, H1: b2 < 0 
+library(multcomp)
+summary(glht(fit, linfct = c("quant >= 0"))) # H0 is rejected
+qt(0.05, 32) # critical t
+#' We conclude that sellers are willing to accept a lower price 
+#' if they can make sales in larger quantities. 
+
+#' e.
+
+#' This implies a H0: b3 <= 0, H1: b2 > 0 
+summary(glht(fit, linfct = c("qual <= 0"))) # H0 is kept
+#' In this case we do not reject H0, we cannot conclude that 
+#' a premium is paid for better quality cocaine. 
+
+#' f.
+
+#' The average annual change in the cocaine price is given by 
+#' the value of -2.35458.
+#' It has a negative sign suggesting that the price decreases 
+#' over time.
+#' A possible reason for a decreasing price is the development 
+#' of improved technology for producing cocaine,
+#' more efficient smuggling, such that suppliers can produce
+#' more at the same cost.
+#' Supply has grown more that demand over these years,
+#'  pressing the price down.
+
+# ----------------------
+
+#' What is the own price elasticity of demand for cocaine?
+g <- makeFun(fit)
+f <- function(quant) {coef(fit)[2]*quant/g(quant,qual=mean(~qual, data = cocaine), trend=mean(~trend, data = cocaine))}
+mean(~quant, data = cocaine)
+#' This is the own price flexibility
+f(quant=mean(~quant, data = cocaine))
+
+#' proxy for Elasticity
+1/f(quant=mean(~quant, data = cocaine))
+#' Plot of elasticity, note how elastic at small quantities
+curve(1/f(x), 5,1000)
+
+# ---------------------------------------------------------
+
+
+
+# 5.27
+
+rm(list = ls())
+browseURL("http://www.principlesofeconometrics.com/poe5/data/def/ashcan_small.def")
+load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/ashcan_small.rdata"))
+
+head(ashcan_small)
+
+# sold date_auctn years_old rhammer inchsq signed 
+# creation age yob drec 
+
+library(mosaic)
+
+ashcan_small <- ashcan_small %>% mutate(inchsq10=inchsq/10)
+ashcan_small <- ashcan_small %>% filter(sold==1)
+
+fit0 <- lm(rhammer~years_old+inchsq10, data = ashcan_small)
+summary(fit0)
+
+coef(fit0)[1]*1000
+
+7*coef(fit0)[2]*1000
+
+coef(fit0)[3]*1000
+
+confint(fit0)
+
+
+library(car)
+deltaMethod(fit0, "b2", parameterNames=paste("b", 1:3, sep=""))
+
+# d).
+
+fit1 <- lm(rhammer~years_old+inchsq10+I(inchsq10^2), data = ashcan_small)
+summary(fit1)
+
+# e).
+
+deltaMethod(fit1, "b2", parameterNames=paste("b", 1:4, sep=""))
+
+# f  slopes at 50 sq in
+car::deltaMethod(fit1, "b3+2*b4*5", parameterNames=paste("b", 1:4, sep=""))
+# f  slopes at 250 sq in
+car::deltaMethod(fit1, "b3+2*b4*25", parameterNames=paste("b", 1:4, sep=""))
+# f  slopes at 900 sq in
+car::deltaMethod(fit1, "b3+2*b4*90", parameterNames=paste("b", 1:4, sep=""))
+
+# Use the deltamethod to find rhammer at age is mean, and sqinc=5
+f <- makeFun(fit1)
+my <- f(years_old=mean(ashcan_small$years_old),inchsq10=10)
+mx <- 10
+# elasticity at sqft 10
+car::deltaMethod(fit1, "(b3+2*b4*10)*mx/my", parameterNames=paste("b", 1:4, sep=""))
+
+bsqiggle <- coef(fit1)[1]+coef(fit1)[3]*10+coef(fit1)[4]*10^2
+-bsqiggle/coef(fit1)[2]
+
+# Use delta method to find age when salesprice turns positive,
+# find a 99% CI for this age
+car::deltaMethod(fit1, "-(b1+10*b3+10^2*b4)/b2",
+                 parameterNames=paste("b", 1:4, sep=""),
+                 level=0.99)
+
+# find optimal size of a painting, find a 90% ci
+car::deltaMethod(fit1, "-b3/(2*b4)",
+                 parameterNames=paste("b", 1:4, sep=""),
+                 level=0.95)
+library(rockchalk)
+fit1
+plotSlopes(fit1, plotx = "inchsq10", interval="confidence", col="red", opacity = 80)
+
+plotSlopes(fit1, plotx = "inchsq10", modx = "years_old")
+
+
+

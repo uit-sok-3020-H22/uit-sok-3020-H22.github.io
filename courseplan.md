@@ -31,4 +31,4 @@
 ||Deadline: 28/10|**`Obligatory Assignment for everybody (if you haven’t done this before): Do iKomp!`** <br /> Log on to: https://result.uit.no/ikomp/ <br /> Choose your language, do the test, generate your certificate, save/print as pdf and submit it in WISEFLOW|
 |19|21/10|We will looking at Exercise 8.19 from chapter 08.Then, we will start chapter 09. <br /> <br />   Chapter 09: Regression with Time-Series Data: Stationary Variables.<br /><br /> I will use the PPT from Canvas, [PPT](https://uit.instructure.com/courses/26963/files/folder/PPT?preview=1983392){:target='_blank_'} <br />|
 ||20||
-||Deadline 28/10|**`Do exercises`** :<br /> **`From Chapter 06:  6.18, 6.19, 6.27`** <br /> **`From Chapter 07: 7.17`** <br /> <br /> **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio.`**|
+||Deadline 28/10|**`Do exercises`** :<br /> **`From Chapter 06:  6.18, 6.27`** <br /> **`From Chapter 07: 7.17`** <br /> <br /> **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio.`**|

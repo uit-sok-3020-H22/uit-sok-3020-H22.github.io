@@ -41,18 +41,21 @@ malawi <- malawi_small %>% filter(ptelephone>0) %>%
   mutate(ln_telephone=log(ptelephone*totexp),
          ln_totexp=log(totexp))
 
+ggplot(malawi, aes(x=ln_totexp, y=ln_telephone)) + geom_point() + geom_smooth(method = lm, se=TRUE, color="red") +
+  xlab("log(Total household expenditure last month, in thousands of Malawian Kwacha)") +
+  ylab("log(Totexp household expenditure on telephone last month)") +
+  ggtitle("Test")
+
+#' There is a positive relationship between the log of telephone expenditure and the log of total household expenditure.
+
+# Alternatively 
 fit <- lm(ln_telephone~ln_totexp, data = malawi)
 summary(fit)
 
 plotModel(fit) + xlab("log(Total household expenditure last month, in thousands of Malawian Kwacha)") +
   ylab("log(Totexp household expenditure on telephone last month)")
 
-#' There is a positive relationship between the log of telephone expenditure and the log of total household expenditure.
 
-ggplot(malawi, aes(x=ln_totexp, y=ln_telephone)) + geom_point() + geom_smooth(method = lm, se=TRUE, color="red") +
-  xlab("log(Total household expenditure last month, in thousands of Malawian Kwacha)") +
-  ylab("log(Totexp household expenditure on telephone last month)") +
-  ggtitle("Test")
 
 # b. ---------------------------------------
 

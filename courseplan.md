@@ -33,4 +33,5 @@
 |21|27/10|We will finilize chapter-09|
 |22|28/10|Chapter-12:Regression with Time-Series Data: Non-Stationary Variables.<br /><br /> [R code for chapter 12](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/chapter_12.R){:target='_blank_'} |
 ||Deadline: 28/10|**`Obligatory Assignment for everybody (if you haven’t done this before): Do iKomp!`** <br /> Log on to: https://result.uit.no/ikomp/ <br /> Choose your language, do the test, generate your certificate, save/print as pdf and submit it in WISEFLOW|
-||Deadline 28/10|**`Do exercises`** :<br /> **`From Chapter 06:  6.18, 6.27`** <br /> **`From Chapter 07: 7.17`** <br /> <br /> **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio.`**|
+||Deadline 28/10|**`Do exercises`** :<br /> **`From Chapter 06:  6.18, 6.27`** <br /> **`From Chapter 07: 7.17`** <br /> <br /> **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio.`** <br /> <br /> [Solution](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/Solution_Assignment_5.R)<br /> <br />|
+|23|03/11|We will finilize Chapter-12|

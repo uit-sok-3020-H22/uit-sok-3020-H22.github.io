@@ -40,4 +40,4 @@
 |25|11/11|Walkthrough of [fall 2021 exam](https://uit.instructure.com/courses/26963/files/folder/Former%20Exams?preview=2098845){:target='_blank_'}. In Canvas you find old exams in the folder: Files - Former Exams|.
 |26|||
 |27|||
-|Exam|14/12|wiseflow exam: part 1 (closed book -True/False, multiple choice questions). 50% of final grade.<br /> wiseflow exam: part 2 (open book - emprical  questions). 50% of final grade.<br /> <br /> |
+|Exams|14/12|wiseflow exam: part 1 (closed book -True/False, multiple choice questions). 50% of final grade.<br /> wiseflow exam: part 2 (open book - emprical  questions). 50% of final grade.<br /> <br /> |

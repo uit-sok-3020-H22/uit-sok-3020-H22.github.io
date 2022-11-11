@@ -37,7 +37,7 @@
 |23|03/11|We will finilize Chapter-12|
 ||**`Deadline: 18/11`**|**`Do exercises`**: <br /> **`From Chapter 7: 7.27 (a)-(e)`**  <br /> **`From Chapter 8:  8.17`** <br /> **`From Chapter 9: 9.21, and  9.22`** <br />     **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio`**|
 |24|10/11| Finish chapter 12 <br /> <br /> [R code for chapter 12(slight update from previous](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/chapter_12_Updated.R){:target='_blank_'}|
-|25|11/11|Walkthrough of [fall 2021 exam](https://uit.instructure.com/courses/26963/files/folder/Former%20Exams?preview=2098845){:target='_blank_'}. In Canvas you find old exams in the folder: Files - Former Exams|.
+|25|11/11|Walkthrough of [fall 2021 exam](https://uit.instructure.com/courses/26963/files/folder/Former%20Exams?preview=2098845){:target='_blank_'}. In Canvas you find old exams in the folder: Files - Former Exams <br /> <br /> [Solution](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/exam_sol-2021.R){:target='_blank_'}|.
 |26|||
 |27|||
 |Exams|14/12|wiseflow exam: part 1 (closed book -True/False, multiple choice questions). 50% of final grade.<br /> wiseflow exam: part 2 (open book - emprical  questions). 50% of final grade.<br /> <br /> |

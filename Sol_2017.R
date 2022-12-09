@@ -136,7 +136,7 @@ f(apr1 = apr1_m,
 
 
 # Calculate sale forecast with and without dispand.
-#Take the price of brand #1 at a price of 90 cents per can, whereas
+# In this case, take the price of brand #1 at a price of 90 cents per can, whereas
 #brand #2 and #3 sells at a 10 cent discount compared to their mean prices.  
  
 # Forecast,when apr1= 0.9, and both competitor drop by 10 cents 

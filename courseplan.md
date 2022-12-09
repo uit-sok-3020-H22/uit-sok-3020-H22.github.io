@@ -39,6 +39,6 @@
 |25|11/11|Walkthrough of [fall 2021 exam](https://uit.instructure.com/courses/26963/files/folder/Former%20Exams?preview=2098845){:target='_blank_'}. In Canvas you find old exams in the folder: Files - Former Exams <br /> <br /> [Solution](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/exam_sol-2021.R){:target='_blank_'}|.
 |26|18/11|Walkthrough fall 2019 exam <br /> <br /> [Solution](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/Sol_2019.R){:target='_blank_'}|
 ||**`Deadline: 18/11`**|**`Do exercises`**: <br /> **`From Chapter 7: 7.27 (a)-(e)`**  <br /> **`From Chapter 8:  8.17`** <br /> **`From Chapter 9: 9.21, and  9.22`** <br />     **`Submit your answers in Canvas before 16:00 and you can get 15 points to your assignment portfolio`**|
-|27|25/11|Walkthrough fall 2017 exam <br /> <br /> |
+|27|25/11|Walkthrough fall 2017 exam <br /> <br /> [Solution](https://github.com/uit-sok-3020-H22/uit-sok-3020-H22.github.io/blob/main/Sol_2017.R){:target='_blank_'}|
 ||**`Deadline 07/12`**|**`Do exercises`**:<br /> **`From Chapter 3: 3.31`** <br /> **`From Chapter 5: 5.19`** <br /> **`From Chapter 12: 12.14, 12.15, and 12.20`** <br /> **`Submit your answers in Canvas before 16:00 and you can get 20 points to your assignment portfolio.`**<br /><br />|
 |**`Exams`**|14/12|wiseflow exam: part 1 (closed book -True/False, multiple choice questions). 50% of final grade.<br /> wiseflow exam: part 2 (open book - emprical  questions). 50% of final grade.<br /> <br /> |

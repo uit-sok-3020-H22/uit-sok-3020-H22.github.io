@@ -1,4 +1,4 @@
-#' Heteroskedasticity, POE5 Example 8.1 food expenditure Model
+#' Heteroskedasticity
 
 rm(list=ls())
 

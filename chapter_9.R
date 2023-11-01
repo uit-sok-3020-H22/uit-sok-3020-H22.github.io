@@ -302,22 +302,15 @@ browseURL("http://www.principlesofeconometrics.com/poe5/data/def/okun5_aus.def")
 load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/okun5_aus.rdata"))
 # rename data
 okun <- okun5_aus
-names(okun)
-head(okun)
-class(okun)
 
-#using ts() function will help us to let R know it is time series data and to enter
-#time variable
+# Time series plots 
+plot(okun$dateid01,okun$g, type="l", xlab = "year", ylab = "growth rate (u)")
+plot(okun$dateid01,okun$u, type="l", xlab = "year", ylab = "unemployment rate (g)")
 
+               
+# use ts() function to transform to time series objectusing .Doing this will let R know it is time series data and to enter time variable
 G <- ts(okun$g, start=c(1978,2), freq=4)
 U <- ts(okun$u, start=c(1978,2), freq=4)
-
-plot(okun$g, type="l")
-plot(G)
-plot(U)
-
-plot(diff(G))
-plot(diff(U))
 
 ---------------------------------------------------------------------------
 #' Note that in `base R`lag(x,-1) is the lag operator, lag(x) is a lead (t+1) operator.

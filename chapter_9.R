@@ -9,12 +9,12 @@ library(mosaic)
 
 browseURL("http://www.principlesofeconometrics.com/poe5/data/def/usmacro.def")
 load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/usmacro.rdata"))
-head(usmacro)
-tail(usmacro)
+
 str(usmacro)
 
+head(usmacro)
 
-ggplot(usmacro, aes(x=dateid01, y=u)) + geom_line() + ylab("Unemployment Rate") + xlab("Year") +
+usmacro %>% ggplot(aes(x=dateid01, y=u)) + geom_line() + ylab("Unemployment Rate") + xlab("Year") +
   labs(title = "Figure 9.2a: U.S. Quarterly unemployment rate 1948:Q1 to 2016:Q1")
 
 ggplot(usmacro, aes(x=dateid01, y=g)) + geom_line() + ylab("Growth Rate") + xlab("Year") +
@@ -33,7 +33,7 @@ acf(usmacro$u)$acf
 
 #' However, the forecast package gives a nicer ggplot, with the ar(0)=1 removed
 library(forecast)
-library(tidyverse)
+#' library(tidyverse)
 
 usmacro %>% select(u) %>% ggAcf() +
   labs(title = "Figure 9.4: Correlogram for U.S. Quarterly unemployment rate")
@@ -60,7 +60,7 @@ library(broom)
 fit <- usmacro %>% select(u) %>% Arima(., order=c(2,0,0)) %>% tidy() 
 fit
 
-?Arima
+?arima
 
 #' The problem with this method of estimation AR model is that, 
 #' in the results, what is reported as intercept is not the intercept,
@@ -82,7 +82,7 @@ fit$estimate[3]*(1-fit$estimate[1]-fit$estimate[2])
 
 
 # ARIMA forecasts
-usmacro %>% select(u) %>% Arima(., order=c(2,0,0)) %>%  forecast(h=30)
+usmacro %>% select(u) %>% Arima(., order=c(2,0,0)) %>%  forecast(h=3)
 # Plot the forecast value 
 usmacro %>% select(u) %>% Arima(., order=c(2,0,0)) %>%  forecast(h=20) %>% autoplot()
 
@@ -118,7 +118,7 @@ fc2
 
 
 
-#' Yet another package    ....> forecast using ARDL(1,2) model 
+#' Another package, forecasting using ARDL(1,2) model 
 
 rm(list=ls())
 load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/usmacro.rdata"))
@@ -126,8 +126,10 @@ load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/usmacro.rdata"
 #install.packages("dLagM")
 library(dLagM)   
 
+?ardlDlm
+
 rem.p = c(0)
-rem.q = c(0)
+rem.q = c(1)
 remove = list(p = rem.p , q = rem.q)   
 
 model.ardl = ardlDlm(x = usmacro[,"g"],
@@ -139,7 +141,7 @@ model.ardl = ardlDlm(x = usmacro[,"g"],
 #' Note that, here, the role of p and q are changed in this package 
 
 #compacted:..--> 
-#model.ardl = ardlDlm(x = usmacro$g, y = usmacro$u, remove=list(p = 1 , q = 2))
+model.ardl = ardlDlm(x = usmacro$g, y = usmacro$u, remove=list(p = 1 , q = 2))
 
 summary(model.ardl)
 
@@ -150,6 +152,26 @@ summary(model.ardl)
 forecast(model = model.ardl, x = c(usmacro[,"g"][273],0.869,1.069), h = 3, interval = TRUE) 
 
 
+#' Another package dynlm
+#' 
+#  Estimate ARDL(2,1) Model 
+library(dynlm)
+#
+fit <- dynlm(u ~ L(u,1)+L(u,2)+L(g,1),data=ts(usmacro)) 
+summary(fit)
+
+#' Alternatively 
+fit2 <- dynlm(u ~ L(u,1:2)+L(g,1),data=ts(usmacro)) 
+summary(fit2)
+
+#'  
+fit2 <- dynlm(u ~ L(u,1:2)+L(g,1:2),data=ts(usmacro)) 
+summary(fit2)
+
+
+
+
+
 #' Lag selection criteria 
 
 # Example 9.8
@@ -158,7 +180,7 @@ usmacro %>% dplyr::select(u) %>% Arima(., order=c(0,0,0)) %>% glance()
 usmacro %>% dplyr::select(u) %>% Arima(., order=c(1,0,0)) %>% glance()
 
 # the auto.arima() function from the forecast package 
-# selects best model based on information criterias , aic and bic 
+# selects best model based on information criteria , aic and bic 
 usmacro %>% dplyr::select(u) %>% auto.arima()
 
 auto.arima(usmacro[,"u"], xreg = usmacro[,"g"]) 
@@ -169,7 +191,7 @@ auto.arima(usmacro[,"u"], xreg = usmacro[,"g"], ic = "bic")
 BIC(dynlm(u~L(u,1)+L(g,0:8),data=ts(usmacro)))
 
 
-#
+
 # loop 'BIC()' over multiple ADL models 
 order <- 1:8
 
@@ -194,7 +216,7 @@ BICs
 
 # Example 9.9 Testing for Granger causality
 
-#H0: x doesnot granger cause y (i.e., x doesn't contribute to the forecast of y)
+#H0: x doesn't granger cause y (i.e., x doesn't contribute to the forecast of y)
 
 library(lmtest)
 grangertest(u ~ g, order = 1, data = usmacro)
@@ -204,11 +226,13 @@ grangertest(u ~ g, order = 2, data = usmacro)
  
  
 
-#Estimation of Autoregressive/ARDL model using dynlm package.
+# Testing for Serial Correlation 
 
-#install.packages("dynlm")
+#' Example 9.10, page 439 
+#' 
+
 require(dynlm)
-
+require(mosaic)
 #' Now we must work on the ts objects directly.
 #' 
 #' Create ts data
@@ -219,40 +243,15 @@ u <- usmacro %>% dplyr::select(u) %>% ts(., start = c(1948,1), frequency = 4)
 #using ts() function will help us to let R know it is time series data and to enter
 #time variable
 
-#' model one: use ARDL(1,1)
+
+
+#'Estimate ARDL(2,1)
 #
-fit1 <- dynlm(u~L(u,1)+L(g,1))
+fit1 <- dynlm(u~L(u,1)+L(u,2)+L(g,1)) 
 summary(fit1)
 
 library(forecast)
 residuals(fit1) %>% ggAcf() +
-  labs(title = "Figure 9.8: Correlogram from ARDL(a,1) model")
-
-#The first two autocorrelations are significant.
-#We conclude that that the errors are serially correlated. 
-#More lags are needed to improve the forecasting specifcation, 
-#and the least squares standard errors. 
-
-require(lmtest)
-#Autocorrelation test
-#Lagrnage multiplier(Lm)/Breusch-Godfrey test for seral correlation
-# H0: No autocorrelation
-bgtest(fit1) #accept the null, no autocorrelation at 10%
-bgtest(fit1, order=2) 
-bgtest(fit1, order=3)
-bgtest(fit1, order=4) 
-
-#' The Durbin-Watson test(the test statistic doesnot rely on large samples like that of LM test)
-#' , HO:no serial correlation 
-dwtest(fit1)  #Ho is rejected 
-
-
-#Model two: ARDL(2,1)
-#
-fit2 <- dynlm(u~L(u,1)+L(u,2)+L(g,1)) 
-summary(fit2)
-
-residuals(fit2) %>% ggAcf() +
   labs(title = "Figure 9.7: Correlogram from ARDL(2,1) model")
 
 #The correlations for its residuals are generally small and insignificant. 
@@ -260,28 +259,60 @@ residuals(fit2) %>% ggAcf() +
 #however, these correlations are at long lags and barely insignificant.
 
 
-#Autocorrelation test
+#' Lagrange multiplier(Lm)/Breusch-Godfrey test for serial correlation
+#' H0: No autocorrelation vs H1: there is autocorrelation/Serial correlation 
+require(lmtest)
+bgtest(fit1) 
+bgtest(fit1, order=2) 
+bgtest(fit1, order=3)
+bgtest(fit1, order=4) 
 
-#Lagrnage multiplier(Lm)/Breusch-Godfrey test for seral correlation
+#' The Durbin-Watson test(the test statistic does not rely on large samples like that of LM test)
+#' , HO:no serial correlation 
+dwtest(fit1)   
+
+
+#' Estimate ARDL(1,1)
+#
+fit2 <- dynlm(u~L(u,1)+L(g,1))
+summary(fit2)
+
+
+residuals(fit2) %>% ggAcf() +
+  labs(title = "Figure 9.8: Correlogram from ARDL(1,1) model")
+
+#The first two autocorrelations are significant.
+#We conclude that that the errors are serially correlated. 
+#More lags are needed to improve the forecasting specifcation, 
+#and the least squares standard errors. 
+
+
+
+#Lagrange multiplier(Lm)/Breusch-Godfrey test for seral correlation
 # Example 9.12 LM test
 # H0: No autocorrelation
 bgtest(fit2) #order one by deafualt, null is rejected
-bgtest(fit2, order=2) #null is rejected
-bgtest(fit2, order=3) #null is rejected
-bgtest(fit2, order=4) #rejected 
-bgtest(fit2, order=40) #rejected
+bgtest(fit2, order=2) 
+bgtest(fit2, order=3) 
+bgtest(fit2, order=4) 
+bgtest(fit2, order=40) 
 
 #' The Durbin-Watson test
 #' , HO:no serial correlation 
 dwtest(fit2)  #Ho is rejected 
+#conclusion: Model 1 is preferred than model 2.
 
 
-#conclusion: Model 2 is preferred than model 1.
 
+
+
+#' Finite distributed lags 
+ 
+#' Example 9.13  Okun's Law
 
 rm(list=ls())
 
-#' Example 9.13 Okun's Law
+
 #' Okuan's Law - is an economic model that gives relationship 
 #' between unemployment(u) and growth rate of the economy.
 #' Specifically,the change in u is related to the output growth rate 
@@ -298,21 +329,25 @@ browseURL("http://www.principlesofeconometrics.com/poe5/data/def/okun5_aus.def")
 # g	growth rate: percentage change in Australian GDP
 # u	Unemployment rate
 
-
 load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/okun5_aus.rdata"))
-# rename data
+
+# rename the data frame 
 okun <- okun5_aus
 
 # Time series plots 
 plot(okun$dateid01,okun$g, type="l", xlab = "year", ylab = "growth rate (u)")
 plot(okun$dateid01,okun$u, type="l", xlab = "year", ylab = "unemployment rate (g)")
 
-               
-# use ts() function to transform to time series objectusing .Doing this will let R know it is time series data and to enter time variable
+
+# use ts() to transform to time series object. 
+#This will help us to let R know it is time series data and to enter time variable
+
 G <- ts(okun$g, start=c(1978,2), freq=4)
 U <- ts(okun$u, start=c(1978,2), freq=4)
 
----------------------------------------------------------------------------
+
+
+#################################################
 #' Note that in `base R`lag(x,-1) is the lag operator, lag(x) is a lead (t+1) operator.
 
 t=ts(1:5)
@@ -320,11 +355,12 @@ cbind(t,stats::lag(t),stats::lag(t,-1))
 
 cbind(t,stats::lag(t,-1))
 cbind(t,stats::lag(t))
-#---------------------------------------------------------------------------------
 
 x=cbind(U,stats::lag(U,-1),diff(U),G,stats::lag(G,-1),stats::lag(G,-2),stats::lag(G,-3),stats::lag(G,-4))
 head(x,10)
 tail(x,10)
+View(x)
+
 
 #' or:
 #' Note that in this setup, the first 4 observations are removed, 
@@ -343,39 +379,48 @@ length(U)
 mod4 <- lm(DU~G+lG+l2G+l3G+l4G, data=data)
 summary(mod4)
 
-#' Or Just use the dynamic package
+################################################
 
-# install.packages("dynlm")
+
+#' Using the dynamic package
 require(dynlm)
-
-#' Now we can work on the ts objects directly./see also below 
-#' Note that the lag operator has changed
-fit5 <- dynlm(diff(U)~G+L(G,1)+L(G,2)+L(G,3)+L(G,4)+L(G,5))
-summary(fit5)
+fit3 <- dynlm(diff(U)~G+L(G,1)+L(G,2)+L(G,3)+L(G,4)+L(G,5))
+summary(fit3)
 
 #' A bit faster model specification
-fit4 <- dynlm(diff(U)~G+L(G,1:4))
-
+fit4 <- dynlm(diff(U)~G+L(G,1:5))
 summary(fit4)
 
 
 library(broom)
 coefs <- tidy(fit4)
-#' lag-weights or multipliers from the model
+
+# lag coefficients 
+coefs$estimate
+
+# impact multiplier 
+coefs$estimate[1]
+
+#distributed-lag-weights or multipliers from the model
 cumsum(coefs$estimate[2:6]) 
 
-plot(x=1:5, cumsum(coefs$estimate[2:6]))
+plot(x=1:5, cumsum(coefs$estimate[2:6]),"l")
 
 
+
+
+
+rm(list=ls())
 
 #' Example 9.14 Phillips Curve
 
 #' The philps curve has a long history in macroeconomics as a tool for describing the relationship 
-#' between inflation and unemployment. Specifically, inflation at time t is related to the change in 
-#' the unemployment rate from period t-t to period t.
-#' 
+#' between inflation and unemployment. 
+#' Specifically, inflation at time t is related to the change in 
+#' the unemployment rate from period t-1 to period t.
+#
 browseURL("http://www.principlesofeconometrics.com/poe5/data/def/phillips5_aus.def")
-#' 
+ 
 # phillips5_aus.def
 # 
 # inf u du
@@ -386,8 +431,6 @@ browseURL("http://www.principlesofeconometrics.com/poe5/data/def/phillips5_aus.d
 # u	Unemployment rate
 # du	Change in the unemployment rate from the previous quarter
 
-
-rm(list=ls())
 library(tidyverse)
 library(dynlm)
 library(forecast)
@@ -406,7 +449,7 @@ autoplot(INF) + labs(title = "Figure 9.10: Time series for the Australian inflat
 
 #Equation(9.65)
 
-fit <- dynlm(INF~d(U))
+fit <- dynlm(INF~ d(U))
 summary(fit)
 
 resid(fit) %>% ggAcf() +
@@ -416,7 +459,7 @@ resid(fit) %>% autoplot() +
   labs(title = "Residuals from Phillips curve")
 
 require(lmtest)
-# chapter 9.4.1
+
 # H0: No autocorrelation
 bgtest(fit)
 bgtest(fit, order=6)
@@ -426,18 +469,24 @@ dwtest(fit)
 
 require(sandwich)
 sqrt(diag(vcov(fit))) # ols se 
-
 sqrt(diag(vcovHAC(fit))) # robust se
 
-type = c("HC3", "const", "HC", "HC0", "HC1", "HC2", "HC4", "HC4m", "HC5")
-type[1]
 
-hc= function(mod,x) list(paste(type[x]),sqrt(diag(vcovHC(mod, type=type[x]))))  
+# OLS estimates and White HCE standard errors
+coeftest(fit, vcov=vcovHAC, type = c("HAC") )
 
-sqrt(diag(vcovHC(fit, type="HC0")))
+# OLS estimates and standard errors
+coeftest(fit)
 
-hc(fit,4) 
 
+#######################################
+# type = c("HC3", "const", "HC", "HC0", "HC1", "HC2", "HC4", "HC4m", "HC5")
+# type[1]
+# hc= function(mod,x) list(paste(type[x]),sqrt(diag(vcovHC(mod, type=type[x]))))  
+# sqrt(diag(vcovHC(fit, type="HC0")))
+# 
+# hc(fit,4) 
+################################################
 
 #' Using least squares with HAC standard errors overcomes 
 #' the negative consequences that autocorrelated errors 
@@ -454,20 +503,25 @@ hc(fit,4)
 
 # You can see page 452-453 on the textbook for more detail
 
+
+
+
 #' Nonlinear Least Squares, p. 453
-#' 
+ 
 names(phillips)
 
 data <- ts.intersect(INF, stats::lag(INF,-1), diff(U), stats::lag(diff(U),-1), dframe=TRUE)
 head(data)
+
 names(data) <- c("inf","inf.L1","Du","Du.L1")
+head(data)
+
+# Equation 9.68
 
 #' some starting(initial) values:
 rho = 0.5
 b1 = 0.7
 b2 = -.5
-
-# Equation 9.68
 
 # Do the NLS (Nonlinear Least Squares) fit 
 fit2 <- nls(inf ~ b1*(1-rho) +rho*inf.L1+ b2*Du  - rho*b2*Du.L1, data=data, start=list(rho=rho,b1=b1,b2=b2))
@@ -477,9 +531,10 @@ summary(fit2)
 fit3 <- lm(inf~Du, data = data)   ## 9.69
 summary(fit3)
 
+
 #' Fix autocorrelation when there is only one lag 
 
-install.packages("orcutt")
+#install.packages("orcutt")
 library(orcutt)
 
 #just see what it does 
@@ -490,7 +545,7 @@ fit.co <- cochrane.orcutt(fit3)
 fit.co
 summary(fit.co)
 
-#Fit a Linear Model Using Generalized Least Squares, gls() function. 
+#Generalized Least Squares, gls() function. 
 #This function fits a linear model using generalized least squares. 
 #the errors are allowed to be correlated and/or have unequal variances.
 
@@ -509,9 +564,8 @@ summary(fit.gls.0)
 #' comparison of different models
 anova(fit.gls.1,fit.gls.0) 
 
-#' the first model(fit.gls.1)is prefered compared 
+#' the first model(fit.gls.1)is preferred compared 
 #' to the model with no AR term(fit.gls.0)
-
 
 anova(fit.gls.1,fit.gls.2) 
    
@@ -529,7 +583,7 @@ summary(model.koyck)
 
 #' Example 9.18
 
-#Computing multipliers for an infinite Lag Okun's Law model 
+#' Computing multipliers for an infinite Lag Okun's Law model 
 #Steps 1 - Begin by estimating an ARDL model 
 #step 2   - Use the formula on page 460 to compute the 
 #          multiplier estimates for the infinite Lag okun's law model 
@@ -547,6 +601,8 @@ G <- ts(okun$g, start=c(1978,2), freq=4)
 model <- dynlm(d(U)~L(d(U), 1:2)+G+L(G,1))
 summary(model)
 
+#' The impact multiplier and the delay multipliers for the 
+#' first 4 quarters are 
 b0=coef(model)[4]
 b1=coef(model)[5]+b0*coef(model)[2]
 
@@ -558,6 +614,7 @@ b4=coef(model)[2]*b3+b2*coef(model)[3]
 b=c(b0,b1,b2,b3,b4)
 b
 plot(0:4,b, type="l", main="Figure 9.12")
+
 
 
 

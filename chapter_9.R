@@ -398,9 +398,6 @@ coefs <- tidy(fit4)
 # lag coefficients 
 coefs$estimate
 
-# impact multiplier 
-coefs$estimate[1]
-
 #distributed-lag-weights or multipliers from the model
 cumsum(coefs$estimate[2:6]) 
 

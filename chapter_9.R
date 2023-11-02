@@ -335,8 +335,8 @@ load(url("http://www.principlesofeconometrics.com/poe5/data/rdata/okun5_aus.rdat
 okun <- okun5_aus
 
 # Time series plots 
-plot(okun$dateid01,okun$g, type="l", xlab = "year", ylab = "growth rate (u)")
-plot(okun$dateid01,okun$u, type="l", xlab = "year", ylab = "unemployment rate (g)")
+plot(okun$dateid01,okun$g, type="l", xlab = "year", ylab = "growth rate (g)")
+plot(okun$dateid01,okun$u, type="l", xlab = "year", ylab = "unemployment rate (u)")
 
 
 # use ts() to transform to time series object. 
